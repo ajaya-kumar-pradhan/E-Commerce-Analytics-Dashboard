@@ -1,81 +1,130 @@
-# 🛒 E-Commerce Analytics Dashboard
-### Power BI | Multi-Page | Dashboard
+# 🛒 FinCart360 — E-Commerce Analytics Dashboard
 
-![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![DAX](https://img.shields.io/badge/DAX-20%2B%20Measures-blue?style=for-the-badge)
-![Star Schema](https://img.shields.io/badge/Star%20Schema-7%20Tables-green?style=for-the-badge)
-![Pages](https://img.shields.io/badge/Dashboard%20Pages-4-orange?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge)
+<div align="center">
 
-### 🔴 [View Live Dashboard →](https://app.powerbi.com/view?r=eyJrIjoiZDA0M2E1YWUtMGU2NC00NDk2LTg1MjUtOTRhNmM5MDk5OTEzIiwidCI6IjdlMzEwODQ1LTg0ZTEtNGRiOC1hZjk4LTcwNDA0MTkwZDhkZSJ9)
+**$12.64M in sales. 21,629 orders. One dashboard that shows exactly where the money is — and where it isn't.**
+*A production-grade Power BI platform covering sales performance, customer intelligence, product profitability, and operational efficiency.*
+
+<br>
+
+[![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://app.powerbi.com/view?r=eyJrIjoiZDA0M2E1YWUtMGU2NC00NDk2LTg1MjUtOTRhNmM5MDk5OTEzIiwidCI6IjdlMzEwODQ1LTg0ZTEtNGRiOC1hZjk4LTcwNDA0MTkwZDhkZSJ9)
+[![DAX](https://img.shields.io/badge/DAX-20%2B%20Measures-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://github.com/ajaya-kumar-pradhan)
+[![Star Schema](https://img.shields.io/badge/Star%20Schema-7%20Tables-6C3483?style=for-the-badge)](https://github.com/ajaya-kumar-pradhan)
+[![RLS](https://img.shields.io/badge/RLS-2%20Dynamic%20Roles-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](https://github.com/ajaya-kumar-pradhan)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge)](https://github.com/ajaya-kumar-pradhan)
+
+<br>
+
+### 🚀 [View Live Power BI Dashboard →](https://app.powerbi.com/view?r=eyJrIjoiZDA0M2E1YWUtMGU2NC00NDk2LTg1MjUtOTRhNmM5MDk5OTEzIiwidCI6IjdlMzEwODQ1LTg0ZTEtNGRiOC1hZjk4LTcwNDA0MTkwZDhkZSJ9)
+
+</div>
 
 ---
 
-## 📌 Project Overview
+## 📌 Overview
 
-A full-scale Power BI dashboard built on a **$12.64M e-commerce dataset** covering **21,629 orders**, **686 customers**, and **6 product categories**. Designed as a decision-support system — not just a collection of charts — with every visual mapped to a specific business question for a specific audience.
+**FinCart360** is a full-scale e-commerce decision-support platform — built not as a collection of charts, but as a structured analytics system where every visual maps to a specific business question for a specific audience.
+
+The platform covers four critical lenses: executive performance, product profitability, customer retention, and operational efficiency. From the CEO's morning KPI brief to a seller checking their own numbers via Row-Level Security — it handles all of it from a single `.pbix` file.
+
+> **The Business Problem:** E-commerce teams drown in data but starve for insight. Revenue looks healthy until you check margins. Customers look loyal until you check retention. Top-selling products often carry the worst profitability.
+>
+> **The Solution:** A 4-page interactive dashboard that surfaces the right signal to the right stakeholder — with drillthrough, dynamic segmentation, and RLS baked in from day one.
+
+---
+
+## 📊 Key Features
+
+- 📈 **Executive KPI command center** — Revenue, orders, profit, AOV, and margin tracked with MoM and YoY overlays in a single view
+- 🔍 **Product profitability exposure** — Dual-axis Revenue vs. Margin % chart that immediately exposes high-revenue, low-margin traps (looking at you, Electronics)
+- 👥 **Customer segmentation engine** — Scatter-based value matrix classifies 686 customers into Champions, Big Spenders, Loyal Low-Value, and At-Risk quadrants
+- 📦 **Operations monitoring** — Cancellation heatmap, delivery delay analysis by shipping provider, and return rate tracking across all fulfillment channels
+- 🔁 **Drillthrough on every dimension** — Right-click any product or customer to navigate to a dedicated detail page with full 24-month history
+- 🔒 **Row-Level Security** — Dynamic roles for 50+ sellers (`USERPRINCIPALNAME()`) and regional managers (mapping table) — each user sees only their data
+- 🎛️ **Dynamic KPI selector** — Field parameter + `SWITCH` measure toggles treemap metric between Revenue, Orders, Customers, Profit, Margin %, or Return Rate in one click
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Tool / Technology | Usage in This Project |
+|---|---|---|
+| **BI & Visualization** | Power BI Desktop + Service | 4-page dashboard, drillthrough, tooltip pages, KPI alerts |
+| **Data Modeling** | Star Schema (1 Fact + 6 Dims) | Relationship design, filter direction, Date Table setup |
+| **Calculations** | DAX — 20+ measures, 3 calc columns | SUMX, INTERSECT, SWITCH, SAMEPERIODLASTYEAR, SELECTEDVALUE |
+| **Data Transformation** | Power Query (M Language) | CSV ingestion, order + items merge, pre-compute offloading |
+| **Data Source & Prep** | SQL, Python (Pandas), Excel | Schema design, synthetic data generation, cleaning pipeline |
+| **Deployment** | Power BI Service | Daily 6AM refresh, RLS roles, dashboard pinning, email alerts |
+
+---
+
+## 📈 Key Metrics & Scale
 
 | Metric | Value |
-|--------|-------|
-| 💰 Total Revenue | $12.64M |
-| 📦 Total Orders | 21,629 |
-| 👥 Total Customers | 686 |
-| 📊 Dashboard Pages | 4 (+ 4 supporting pages) |
-| 🧮 DAX Measures | 20+ |
-| 🗂️ Schema Tables | 7 (1 Fact + 6 Dimensions) |
-| 🔒 RLS Roles | 2 Dynamic Roles |
+|---|---|
+| 💰 Total Revenue | **$12.64M** |
+| 📦 Total Orders | **21,629** |
+| 👥 Total Customers | **686** |
+| 📊 Dashboard Pages | **4 main + 4 supporting** |
+| 🧮 DAX Measures | **20+** |
+| 🗂️ Schema Tables | **7 (1 Fact + 6 Dimensions)** |
+| 🔒 RLS Roles | **2 Dynamic Roles** |
+| 💵 Avg Order Value | **$584.50** |
+| 🔁 Customer Retention Rate | **49.12%** |
+| ✅ Order Completion Rate | **82.31%** |
+| 📉 Cancellation Rate | **2%** |
+| 🔄 Return Rate | **13%** |
 
 ---
 
-## 🗂️ Dashboard Pages
+## 🧠 Insights & Business Value
 
-### Page 1 — Executive Overview
-> *CEO's morning briefing in a dashboard*
+| Insight | Dashboard Signal | Recommended Action |
+|---|---|---|
+| 💸 **Electronics Margin Trap** | $8.58M revenue — lowest margin on dual-axis chart | Bundle high-margin accessories to lift category profitability |
+| 👑 **Revenue Concentration Risk** | Champions quadrant drives outsized share in customer scatter | Launch VIP retention program before these customers churn |
+| 📉 **Retention Freefall** | Monthly retention dropped from 70% (Jan) → 49% (Dec) | Activate win-back campaigns targeting churned High Value segment |
+| 🚚 **FedEx Delay Spike** | Highest delayed order count across all providers | Renegotiate SLA terms or redistribute volume to Bluedart |
+| 🗓️ **Q4 Revenue Concentration** | Revenue trend peaks Oct–Dec in monthly line chart | Build inventory in Q3; deploy promotional campaigns in Q1–Q2 to flatten seasonality |
 
-- **KPI Cards:** Total Revenue ($12.64M, +3.7% YoY), Orders (21,629, +5.6% YoY), Profit ($10M, +3.6% YoY), Avg Order Value ($584.50), Profit Margin % (0.75%)
-- **Monthly Revenue Trends** — Line chart with MoM Growth % dual axis overlay
-- **YoY Comparison** — Clustered bar comparing this year vs. prior year revenue by month
-- **Order Status Distribution** — Donut chart: Completed (82.31%) / In Progress / Returned / Cancelled
-- **YTD vs Running Total** — Area chart showing cumulative revenue growth Jan–Dec
-
----
-
-### Page 2 — Sales & Product Analysis
-> *Identify revenue drivers, margin leaders, and underperformers*
-
-- **Revenue by Category** — Horizontal ranked bar (Electronics: $8.58M leads, but at low margin)
-- **Revenue vs Profit Margin** — Signature dual-axis chart (column = revenue, line = margin %) — exposes the Electronics margin trap
-- **Top Performing Product Matrix** — Sortable table: Revenue | Orders | Profit | Margin % | Return Rate | Arrow trend
-- **Dynamic KPI Selector** — Field parameter toggles treemap between Revenue / Orders / Customers / Profit / Margin % / Return Rate
-- **Drillthrough:** Right-click any product → Product Detail page with 12-month trend, full order history, stock level
+**Business value delivered:**
+> Sellers see only their own data. Regional managers see only their states. Executives see everything — revenue, risk, and retention — from a single morning view. The dashboard doesn't just report what happened; it flags what needs to happen next.
 
 ---
 
-### Page 3 — Customer Insights
-> *Segment, retain, and grow the customer base*
+## 🖼️ Dashboard Preview
 
-- **KPI Cards:** 686 Customers | 259 High Value Customers | $18,429 Revenue per Customer | 49.12% Retention Rate
-- **Revenue by Segment** — Bar chart: High Value ($46,060 avg) | Medium Value ($2,506) | Low Value ($497)
-- **Customer Value Matrix** — Scatter plot: X = Orders, Y = Revenue, Bubble Size = Recency → Champions / Big Spenders / Loyal Low-Value / At-Risk quadrants
-- **Retention Trend** — Line chart showing monthly retention rate (Jan: 70% → Dec: 49.12%) with 70% target reference line
-- **Geographic Revenue Map** — Filled US map, revenue intensity by state
-- **Customer Leaderboard** — Sortable: Name | Revenue | Orders | Segment | Last Purchase | LTV
-- **Drillthrough:** Right-click any customer → Customer Detail page with 24-month trend, order history, category preferences
+### 1️⃣ Executive Overview
+*KPI Cards (Revenue, Orders, Profit, AOV, Margin) · Monthly Revenue Trend · YoY Comparison · Order Status Donut · YTD Running Total*
+
+![Executive Overview](screenshots/page1_executive_overview.png)
 
 ---
 
-### Page 4 — Operations Dashboard
-> *Monitor delivery performance, cancellations, and efficiency*
+### 2️⃣ Sales & Product Analysis
+*Revenue by Category · Revenue vs Margin % Dual-Axis · Product Performance Matrix · Dynamic KPI Treemap · Product Drillthrough*
 
-- **KPI Cards:** Cancellation Rate (2%) | Return Rate (13%) | Delivery Success (82%) | Avg Shipping Days (3.0)
-- **Order Status by Month** — Stacked bar: Completed / Cancelled / In Progress / Returned — month by month
-- **Cancellation Heatmap** — Matrix: Rows = State, Columns = Category, Color = Cancellation intensity (white → dark red)
-- **Delivery Delay Analysis** — Dual-axis: On-Time vs Delayed counts by shipping provider (FedEx, DHL, Bluedart)
-- **Shipping Provider Performance** — Horizontal bar ranked by delivery success rate vs SLA target reference line
+![Sales & Product Analysis](screenshots/page2_sales_product.png)
 
 ---
 
-## 🏗️ Data Model — Star Schema
+### 3️⃣ Customer Insights
+*Customer Value Scatter Matrix · Segment Revenue Bars · Retention Trend Line · US Geographic Map · Customer Leaderboard · Customer Drillthrough*
+
+![Customer Insights](screenshots/page3_customer_insights.png)
+
+---
+
+### 4️⃣ Operations
+*Cancellation Heatmap (State × Category) · Delivery Delay Analysis · Shipping Provider Rankings · Order Status by Month*
+
+![Operations](screenshots/page4_operations.png)
+
+---
+
+## 🏗️ Data Architecture
+
+**Star Schema Design:**
 
 ```
                     dim_Date
@@ -84,31 +133,36 @@ dim_Category ──── fact_sales ──── dim_Products
                        │
 dim_Customers ─────────┤──────── dim_Sellers
                        │
-                   dim_Shipping (shipping table)
+                   dim_Shipping
 ```
 
-| Table | Type | Rows | Key Fields |
-|-------|------|------|------------|
-| `fact_sales` | Fact | ~21K | order_id, customer_id, product_id, seller_id, date_id, quantity, price, status |
-| `dim_Date` | Dimension | 365+ | date, month, quarter, year, month_name |
-| `dim_Products` | Dimension | — | product_id, name, category_id, COGS, price |
-| `dim_Category` | Dimension | 6 | category_id, category_name |
-| `dim_Customers` | Dimension | 686 | customer_id, name, state, segment |
-| `dim_Sellers` | Dimension | — | seller_id, seller_name |
-| `shipping` | Fact/Bridge | — | order_id, provider, shipping_date, delivery_status, return_date |
+```sql
+-- Core Fact Table
+fact_sales      → order_id, customer_id, product_id, seller_id, date_id,
+                  quantity, price_per_unit, status
+
+-- Shipping Bridge
+dim_Shipping    → order_id, provider, shipping_date, delivery_status, return_date
+
+-- Dimension Tables
+dim_Date        → date_id, date, month, quarter, year, month_name
+dim_Products    → product_id, name, category_id, COGS, price
+dim_Category    → category_id, category_name
+dim_Customers   → customer_id, name, state, segment
+dim_Sellers     → seller_id, seller_name
+```
 
 **Design Decisions:**
-- All relationships: Many-to-One, **single-direction** filter flow (Dimension → Fact)
-- `dim_Date` marked as official Date Table
-- Auto Date/Time disabled (reduces model size ~40%)
-- `fact_sales` merges order header + order items for unified order-level and product-level analysis
+- All relationships: Many-to-One, single-direction filter flow (Dimension → Fact)
+- `dim_Date` marked as official Date Table; Auto Date/Time disabled (reduces model size ~40%)
+- `fact_sales` merges order header + order items into a unified table for both order-level and product-level analysis
 
 ---
 
-## 🧮 Key DAX Measures
+## 💡 Key DAX Measures
 
 ```dax
--- Total Revenue (SUMX for row-by-row calculation)
+-- Revenue (row-by-row SUMX for accuracy)
 Total Revenue =
 SUMX(fact_sales, fact_sales[quantity] * fact_sales[price_per_unit])
 
@@ -120,10 +174,11 @@ RETURN IF(ISBLANK(PY) || PY = 0, BLANK(), DIVIDE([Total Revenue] - PY, PY))
 -- Customer Retention Rate (INTERSECT method)
 Customer Retention Rate =
 VAR CurrentYr = CALCULATETABLE(VALUES(fact_sales[customer_id]), DATESYTD(dim_Date[Date]))
-VAR PriorYr   = CALCULATETABLE(VALUES(fact_sales[customer_id]), SAMEPERIODLASTYEAR(DATESYTD(dim_Date[Date])))
+VAR PriorYr   = CALCULATETABLE(VALUES(fact_sales[customer_id]),
+                    SAMEPERIODLASTYEAR(DATESYTD(dim_Date[Date])))
 RETURN DIVIDE(COUNTROWS(INTERSECT(CurrentYr, PriorYr)), COUNTROWS(PriorYr), 0)
 
--- Dynamic KPI Switch
+-- Dynamic KPI Selector
 Selected KPI =
 SWITCH(SELECTEDVALUE('KPI Options'[KPI Name], "Revenue"),
     "Revenue",     [Total Revenue],
@@ -134,101 +189,79 @@ SWITCH(SELECTEDVALUE('KPI Options'[KPI Name], "Revenue"),
     [Total Revenue])
 ```
 
-**Full Measure Library includes:**
-`Total Revenue` · `Total Orders` · `Total Customers` · `Total Profit` · `Profit Margin %` · `MoM Growth %` · `YoY Growth %` · `YTD Revenue` · `Running Total Revenue` · `Revenue Last Year` · `Revenue Arrow` · `Revenue % of Total` · `Return Rate` · `Cancellation Rate` · `Cancellation Count` · `Lost Revenue (Cancellations)` · `Delivery Success Rate` · `Provider Delay Rate` · `Customer Retention Rate` · `Revenue per Customer` · `Customer LTV` · `Selected KPI` · `Dynamic Page Title`
+**Full measure library:**
+`Total Revenue` · `Total Orders` · `Total Customers` · `Total Profit` · `Profit Margin %` · `MoM Growth %` · `YoY Growth %` · `YTD Revenue` · `Running Total Revenue` · `Revenue Last Year` · `Revenue Arrow` · `Revenue % of Total` · `Return Rate` · `Cancellation Rate` · `Lost Revenue (Cancellations)` · `Delivery Success Rate` · `Provider Delay Rate` · `Customer Retention Rate` · `Revenue per Customer` · `Customer LTV` · `Selected KPI` · `Dynamic Page Title`
 
 ---
 
-## ✨ Advanced Features
-
-| Feature | Implementation |
-|---------|---------------|
-| **Dynamic KPI Selector** | Disconnected `KPI Options` table + `SELECTEDVALUE` SWITCH measure |
-| **Product Drillthrough** | Right-click product → detail page (trend, orders, stock) |
-| **Customer Drillthrough** | Right-click customer → 24-month history, category mix |
-| **Custom Tooltip Pages** | 320×240px pages with mini KPI cards — hover any data point |
-| **Cross-Page Slicer Sync** | Year + Category synced across all 4 pages via Sync Slicers pane |
-| **Conditional Formatting** | Icon sets (margin %), gradient scales (revenue), heatmap (cancellations), data bars (YoY) |
-| **Dynamic Titles** | `SELECTEDVALUE`-driven titles showing active filter context on every page |
-| **Row-Level Security** | Seller View (`USERPRINCIPALNAME()`) + Regional Manager View (mapping table) — 1 dynamic role handles 50+ sellers |
-
----
-
-## 📐 Calculated Columns
+## 🔢 Calculated Columns
 
 ```dax
--- Customer Segment (in dim_Customers)
+-- Customer Segment (dim_Customers)
 Customer Segment =
 VAR Rev = CALCULATE([Total Revenue], ALLEXCEPT(dim_Customers, dim_Customers[customer_id]))
-RETURN SWITCH(TRUE(), Rev >= 5000, "High Value", Rev >= 1500, "Medium Value", Rev > 0, "Low Value", "Inactive")
+RETURN SWITCH(TRUE(),
+    Rev >= 5000, "High Value",
+    Rev >= 1500, "Medium Value",
+    Rev >  0,    "Low Value",
+                 "Inactive")
 
--- Delivery Delay Flag (in shipping table)
+-- Delivery Delay Flag (dim_Shipping)
 Delivery Delay Flag =
-VAR Days = DATEDIFF(shipping[shipping_date], IF(ISBLANK(shipping[return_date]), TODAY(), shipping[return_date]), DAY)
+VAR Days = DATEDIFF(shipping[shipping_date],
+               IF(ISBLANK(shipping[return_date]), TODAY(), shipping[return_date]), DAY)
 RETURN SWITCH(TRUE(),
     ISBLANK(shipping[shipping_date]),        "Unknown",
     shipping[delivery_status] = "Delivered", "On Time",
     Days > 10,                               "Severely Delayed",
     Days > 7,                                "Delayed",
-    "In Transit")
+                                             "In Transit")
 ```
-
----
-
-## 💡 Business Insights Surfaced
-
-| Insight | Dashboard Signal | Recommended Action |
-|---------|-----------------|-------------------|
-| **Electronics Margin Trap** | High revenue ($8.58M), low margin on dual-axis chart | Bundle high-margin accessories with electronics |
-| **Revenue Concentration Risk** | Top customers drive disproportionate revenue (scatter quadrant) | Launch VIP retention program for Champions |
-| **Retention Decline** | Retention fell from 70% (Jan) to 49% (Dec) | Activate win-back campaigns for churned High Value customers |
-| **FedEx Delay Problem** | Highest delayed order count in Delivery Delay Analysis | Renegotiate SLA or redistribute volume to Bluedart |
-| **Q4 Seasonal Spike** | Revenue trend peaks Oct–Dec | Pre-build inventory in Q3, run promotions in Q1–Q2 |
 
 ---
 
 ## 🔒 Row-Level Security
 
 ```dax
--- Seller View Role (applied to dim_Sellers)
+-- Seller View (applied to dim_Sellers)
+-- Each seller sees only their own orders; filter propagates → fact_sales → dim_Products
 [seller_name] = USERPRINCIPALNAME()
--- Filter propagates: dim_Sellers → fact_sales → dim_Products
 
 -- Regional Manager View (applied to dim_Customers)
-[state] IN CALCULATETABLE(VALUES(RegionAccess[state]),
-              RegionAccess[manager_email] = USERPRINCIPALNAME())
+-- Manager sees only states assigned to them in RegionAccess mapping table
+[state] IN CALCULATETABLE(
+    VALUES(RegionAccess[state]),
+    RegionAccess[manager_email] = USERPRINCIPALNAME()
+)
 ```
+
+> One dynamic Seller role handles 50+ sellers automatically — no hardcoded filters, no role per user.
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Advanced Features
 
-![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![Power Query](https://img.shields.io/badge/Power%20Query-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)
-![DAX](https://img.shields.io/badge/DAX-20%2B%20Measures-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Power BI Service](https://img.shields.io/badge/Power%20BI%20Service-Deployed-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-
-| Tool | Layer | Usage in This Project |
-|------|-------|-----------------------|
-| **Power BI Desktop** | Visualization | 4-page dashboard design, 20+ DAX measures, star schema modeling, RLS configuration, drillthrough & tooltip pages |
-| **Power Query (M)** | Transformation | Data ingestion from CSV, column profiling, table merging (orders + order items into fact_sales), pre-computed transformations to offload DAX query time |
-| **DAX** | Calculation | 20+ measures (SUMX, SAMEPERIODLASTYEAR, INTERSECT, SWITCH, SELECTEDVALUE) + 3 calculated columns (Customer Segment, Delivery Delay Flag, Days Since Last Order) |
-| **SQL** | Data Modeling | Star schema design, data validation queries, relationship logic between fact and dimension tables |
-| **Python** | Data Processing | Dataset generation, synthetic data scripting, Pandas-based data cleaning and pre-processing pipeline |
-| **Power BI Service** | Deployment | Published to workspace, scheduled daily refresh at 6 AM, dashboard pinning, KPI email alerts, RLS role assignment to security groups — [🔴 Live Here](https://app.powerbi.com/view?r=eyJrIjoiZDA0M2E1YWUtMGU2NC00NDk2LTg1MjUtOTRhNmM5MDk5OTEzIiwidCI6IjdlMzEwODQ1LTg0ZTEtNGRiOC1hZjk4LTcwNDA0MTkwZDhkZSJ9) |
+| Feature | Implementation |
+|---|---|
+| **Dynamic KPI Selector** | Disconnected `KPI Options` table + `SELECTEDVALUE` SWITCH measure |
+| **Product Drillthrough** | Right-click → detail page with 12-month trend, order history, stock level |
+| **Customer Drillthrough** | Right-click → 24-month history, category preferences, LTV |
+| **Custom Tooltip Pages** | 320×240px hover pages with mini KPI cards on every data point |
+| **Cross-Page Slicer Sync** | Year + Category synced across all 4 pages via Sync Slicers pane |
+| **Conditional Formatting** | Icon sets (margin %), gradient scales (revenue), heatmap (cancellations), data bars (YoY) |
+| **Dynamic Page Titles** | `SELECTEDVALUE`-driven titles reflect active filter context on every page |
+| **Row-Level Security** | Seller + Regional Manager roles — 1 dynamic rule handles 50+ users |
 
 ---
 
-## 📁 Repository Structure
+## 📂 Project Structure
 
 ```
-ecommerce-analytics-dashboard/
+FinCart360-Ecommerce-Analytics/
 │
 ├── 📊 E_Commerce_Analytics_Dashboard.pbix     # Main Power BI file
 │
-├── 📂 data/
+├── 📁 data/
 │   ├── fact_sales.csv
 │   ├── dim_date.csv
 │   ├── dim_products.csv
@@ -237,53 +270,59 @@ ecommerce-analytics-dashboard/
 │   ├── dim_sellers.csv
 │   └── shipping.csv
 │
-├── 📂 screenshots/
+├── 📁 screenshots/
 │   ├── page1_executive_overview.png
 │   ├── page2_sales_product.png
 │   ├── page3_customer_insights.png
 │   └── page4_operations.png
 │
-├── 📂 docs/
+├── 📁 docs/
 │   ├── data_dictionary.md
 │   ├── dax_measures.md
 │   └── design_blueprint.md
 │
-└── README.md
+└── 📄 README.md
 ```
 
 ---
 
-## 🚀 How to Use
+## 🚀 How to Run Locally
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/ajayakumar-pradhan/ecommerce-analytics-dashboard.git
-   ```
+```bash
+# 1. Clone the repository
+git clone https://github.com/ajaya-kumar-pradhan/ecommerce-analytics-dashboard.git
 
-2. **Open the PBIX file** in Power BI Desktop (version 2.0+ recommended)
+# 2. Open the .pbix file in Power BI Desktop (v2.0+ recommended)
 
-3. **Load the data** — place all CSV files from `/data` folder in the same directory, then refresh the dataset
+# 3. Place all CSV files from /data in the same directory, then refresh the dataset
 
-4. **Explore the dashboard** — use Year / Quarter / Category slicers to filter; right-click any product or customer to drillthrough
+# 4. Explore: use Year / Quarter / Category slicers to filter
+#    Right-click any product or customer to drillthrough
 
-5. **Test RLS** — `Modeling > View As > Select Role` to simulate seller or manager views
-
----
-
-## 👤 Author
-
-**Ajaya Kumar Pradhan**
-Data Analyst | Power BI | SQL | Python | Machine Learning
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://linkedin.com/in/ajayakumarpradhan)
-[![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black?style=flat&logo=github)](https://github.com/ajayakumar-pradhan)
+# 5. Test RLS: Modeling > View As > Select Role
+#    to simulate Seller or Regional Manager views
+```
 
 ---
 
-## 📄 License
+## 👤 About Me
 
-This project is open for portfolio and educational use. Please credit the author if reused.
+**Ajaya Kumar Pradhan** — Data Analyst | Power BI Developer
+
+I build analytics platforms that turn business data into clear, fast decisions. My work spans the full stack — data modeling, DAX, dashboard design, and deployment — with a focus on making insights accessible to every stakeholder, technical or not.
+
+**Core Skills:** `Power BI` `DAX` `SQL` `Python` `Star Schema` `Power Query` `RLS` `ETL` `Customer Analytics`
+
+<br>
+
+📧 [ajayapradhan.connect@gmail.com](mailto:ajayapradhan.connect@gmail.com)
+🔗 [linkedin.com/in/ajayakumarpradhan](https://www.linkedin.com/in/ajayakumarpradhan/)
+💻 [github.com/ajaya-kumar-pradhan](https://github.com/ajaya-kumar-pradhan)
 
 ---
 
-*Built as part of a production-grade Power BI portfolio demonstrating enterprise dashboard design, advanced DAX, star schema modeling, and business intelligence storytelling.*
+<div align="center">
+
+*If this project helped or inspired you, consider giving it a ⭐ — it helps others find it too.*
+
+</div>
